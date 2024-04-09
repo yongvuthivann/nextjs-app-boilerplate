@@ -2,6 +2,13 @@
   "name": "nextjs-app-boilerplate",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yongvuthivann/nextjs-app-boilerplate"
+  },
+  "engines": {
+    "node": "v20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
