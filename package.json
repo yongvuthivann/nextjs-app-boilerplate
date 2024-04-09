@@ -15,7 +15,9 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier \"**/*.{js,mjs,ts,tsx,md,mdx,json,yml,css}\" --check .",
-    "prettier:fix": "pnpm prettier --write ."
+    "prettier:fix": "pnpm prettier --write .",
+    "prepare": "husky",
+    "pre-commit": "pnpm lint"
   },
   "dependencies": {
     "next": "14.1.4",
@@ -31,6 +33,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.3.0",
