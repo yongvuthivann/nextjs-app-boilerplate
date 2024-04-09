@@ -13,7 +13,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettier": "prettier \"**/*.{js,mjs,ts,tsx,md,mdx,json,yml,css}\" --check .",
+    "prettier:fix": "pnpm prettier --write ."
   },
   "dependencies": {
     "next": "14.1.4",
