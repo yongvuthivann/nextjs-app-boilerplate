@@ -3,7 +3,7 @@
 First, install packages:
 
 ```bash
-pnpm dev
+pnpm install
 ```
 
 Second, run the development server
