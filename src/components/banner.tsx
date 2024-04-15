@@ -1,9 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { Github } from 'lucide-react';
 
 import { Button } from './ui/button';
-import { Github } from 'lucide-react';
-import Link from 'next/link';
 
 export default function Banner() {
   const t = useTranslations();
