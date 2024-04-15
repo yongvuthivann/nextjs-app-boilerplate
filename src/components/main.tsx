@@ -1,11 +1,10 @@
-import { useTranslations } from 'next-intl';
 import React from 'react';
+import Banner from './banner';
 
 export default function Main() {
-  const t = useTranslations('Index');
   return (
     <div>
-      <p>{t('title')}</p>
+      <Banner />
     </div>
   );
 }
