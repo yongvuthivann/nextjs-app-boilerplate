@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { ThemeProvider } from '@/providers/theme-provider';
-import { Header } from '@/components';
+import { Footer, Header } from '@/components';
 import { MainLayout } from '@/layouts';
 
 import '../../styles/globals.css';
@@ -33,6 +33,7 @@ export default function RootLayout({
           <MainLayout>
             <Header />
             {children}
+            <Footer />
           </MainLayout>
         </ThemeProvider>
       </body>
