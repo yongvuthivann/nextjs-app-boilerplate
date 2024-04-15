@@ -9,10 +9,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function LangToggle() {
   const router = useRouter();
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1];
 
   return (
     <DropdownMenu>
@@ -21,10 +23,16 @@ export default function LangToggle() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => router.replace(`/en`)}>
+        <DropdownMenuItem
+          onClick={() => router.replace(`/en`)}
+          className={`${currentLocale === 'en' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
+        >
           English
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => router.replace('/kh')}>
+        <DropdownMenuItem
+          onClick={() => router.replace('/kh')}
+          className={`${currentLocale === 'kh' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
+        >
           Khmer
         </DropdownMenuItem>
       </DropdownMenuContent>
