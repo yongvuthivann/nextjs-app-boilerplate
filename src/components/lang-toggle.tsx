@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Languages } from 'lucide-react';
+import { usePathname, useRouter } from '../../navigation.mjs';
 
 import {
   DropdownMenu,
@@ -9,12 +10,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 export default function LangToggle() {
   const router = useRouter();
+  const locale = useLocale();
   const pathname = usePathname();
-  const currentLocale = pathname.split('/')[1];
 
   return (
     <DropdownMenu>
@@ -24,14 +25,14 @@ export default function LangToggle() {
 
       <DropdownMenuContent align="end">
         <DropdownMenuItem
-          onClick={() => router.replace(`/en`)}
-          className={`${currentLocale === 'en' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
+          onClick={() => router.replace(pathname, { locale: 'en' })}
+          className={`${locale === 'en' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
         >
           English
         </DropdownMenuItem>
         <DropdownMenuItem
-          onClick={() => router.replace('/kh')}
-          className={`${currentLocale === 'kh' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
+          onClick={() => router.replace(pathname, { locale: 'kh' })}
+          className={`${locale === 'kh' ? 'bg-slate-200 dark:bg-slate-400' : ''}`}
         >
           Khmer
         </DropdownMenuItem>
