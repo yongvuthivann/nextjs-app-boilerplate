@@ -6,7 +6,6 @@ import { useTheme } from 'next-themes';
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
-  console.log(theme);
 
   return (
     <div className="flex space-x-2 rounded-full border-[1px] p-1">
