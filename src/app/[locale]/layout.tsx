@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 
 import { ThemeProvider } from '@/providers/theme-provider';
 
-import './globals.css';
+import '../../styles/globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,11 +14,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
