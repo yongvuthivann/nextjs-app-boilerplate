@@ -15,7 +15,7 @@ export default function Banner() {
 
       <p className="mt-2 text-center text-sm md:text-base">
         Accelerate your Next.js application with streamlined setup featuring
-        efficient app router with buit-in up to date libraries and packages.
+        efficient app router with built-in up to date libraries and packages.
       </p>
 
       <div className="mt-5 flex justify-center space-x-5">
