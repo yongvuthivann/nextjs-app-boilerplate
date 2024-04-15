@@ -1,5 +1,7 @@
 {
-  "Index": {
-    "title": "Hello world!"
+  "page": {
+    "home": {
+      "welcome": "សូមស្វាគមន៍មកកាន់ Next.js boilerplate"
+    }
   }
 }
