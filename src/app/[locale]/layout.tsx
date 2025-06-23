@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
 
 import { ThemeProvider } from '@/providers/theme-provider';
 import { Footer, Header } from '@/components';
 import { MainLayout } from '@/layouts';
 
 import '../../styles/globals.css';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,13 +18,17 @@ export const metadata: Metadata = {
     "Effortlessly configure your Next.js app's router setup by simply cloning a project",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   return (
     <html lang={locale} suppressHydrationWarning={true}>
       <head>
@@ -41,18 +48,20 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <MainLayout>
-            <Header />
-            {children}
-            <Footer />
-          </MainLayout>
-        </ThemeProvider>
+        <NextIntlClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <MainLayout>
+              <Header />
+              {children}
+              <Footer />
+            </MainLayout>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

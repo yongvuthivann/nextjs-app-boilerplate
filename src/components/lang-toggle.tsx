@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Languages } from 'lucide-react';
-import { usePathname, useRouter } from '../../navigation.mjs';
 
 import {
   DropdownMenu,
@@ -11,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/navigation';
 
 export default function LangToggle() {
   const router = useRouter();
