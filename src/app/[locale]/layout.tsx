@@ -3,12 +3,13 @@ import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 
 import { ThemeProvider } from '@/providers/theme-provider';
-import { Footer, Header } from '@/components';
 import { MainLayout } from '@/layouts';
 
 import '../../styles/globals.css';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
