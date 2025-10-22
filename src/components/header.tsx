@@ -1,5 +1,3 @@
-import React from 'react';
-
 import LangToggle from './lang-toggle';
 import { ModeToggle } from './mode-toggle';
 
